@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Socratic Quotes</title>
+</head>
+<body class='bg-light text-dark' style="font-family: 'Courier New', Courier, monospace">
+    <div class="container">
+        <div class ='container p-2'>
+            <h3 class="text-muted text-center">Quotes Generator</h3>
+        </div>
+        <div class="row"> 
+            <div class ='containter p-5 col-sm-4 bg-secondary text-white text-center rounded'>
+              <h3>Add A Memorable Quote </h3>
+              <form id="add-quote">
+                    <div class="form-group">
+                      <label for="philosopherName">Philosopher's Name</label>
+                      <input type="text" class="form-control" id="input-name"  placeholder="Thales">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">A Bit of Wisdom</label>
+                      <textarea class="form-control" id="input-quote" placeholder="Everything is water"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>   
+            <div class="container p-5 col-sm-8">
+                    <div>
+                        </div>
+                        <div class="jumbotron bg-dark text-white ">
+                        <h1 id='quotes-title' class="display-6 text-center">Socrates</h1>
+                        <p id='quote'class="lead text-center">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <span id='next-prev-btns'>
+                            <p class='d-flex justify-content-center'><a type ="button "id='prev-quote-btn' class="btn btn-lg btn-info " href="#" role="button">Previous Quote</a></p>
+                            <p class='d-flex justify-content-center'><a type ="button "id='next-quote-btn' class="btn btn-lg btn-info " href="#" role="button">Next Quote</a></p>
+                        </span>
+                        <p class='d-flex justify-content-center '><a type ="button "id='next-philosopher-btn' class="btn btn-lg btn-info " href="#" role="button">Change Philosopher</a></p>
+                    </div>
+            </div>
+        </div> 
+    </div> 
+          
+    
+
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+</body>
+</html>

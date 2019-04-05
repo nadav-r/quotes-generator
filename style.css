@@ -1,0 +1,12 @@
+/* #img{
+    background: url(https://www.history.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTU3ODc5MDg2NDMzNTEwNzI5/death-of-socrates.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+#next-prev-btns{
+    display: flex;
+    justify-content: space-around;
+}
