@@ -45,8 +45,8 @@ class PhilosophersStore{
 
 function randQuote(){
     let cur = showingQuote.innerHTML;
-    const newQuote =curPhilosopher.quotes[Math.floor(Math.random() * curPhilosopher.quotes.length)];
-    while(newQuote===cur){
+    let newQuote =curPhilosopher.quotes[Math.floor(Math.random() * curPhilosopher.quotes.length)];    
+    while(curPhilosopher.quotes.length>1 && newQuote===cur){
         newQuote =curPhilosopher.quotes[Math.floor(Math.random() * curPhilosopher.quotes.length)];
     }
     showingQuote.innerHTML=newQuote;
@@ -62,6 +62,7 @@ function randPhilosopher(){
     curPhilosopher=newPhilosopher;
     quotesTitle.innerHTML=newPhilosopher.name;
     newPhilosopher.quotes===null? showingQuote.innerHTML="No quotes add yet": showingQuote.innerHTML=newPhilosopher.quotes[0];
+    quotesStack=[];
     quotesStack.push(newPhilosopher.quotes[0]);
 }
 
@@ -92,18 +93,18 @@ function addQuote(){
     showingQuote.innerHTML=quote;
     quotesTitle.innerHTML=name;
     quotesStack.push(quote);
-    
-  
-    
+    curPhilosopher=philosopher;
+    PhilosophersStore.addPhilosopher(philosopher);
 
 }
 
-const philosophers=[
+let philosophers=[
     new Philosopher('Socrates',quotesSocrates),
     new Philosopher('Aristotle',quotesAristotle),
-]
-philosophers.forEach(philosopher=>PhilosophersStore.addPhilosopher(philosopher));
+    ]
 
+philosophers.forEach(philosopher=>PhilosophersStore.addPhilosopher(philosopher));
+philosophers =PhilosophersStore.getPhilosophers();
 let curPhilosopher = philosophers[0];
 
 const quotesTitle = document.getElementById('quotes-title');
@@ -112,7 +113,7 @@ const nextBtn = document.getElementById('next-quote-btn');
 const prevBtn = document.getElementById('prev-quote-btn');
 const changePhilosopherBtn = document.getElementById('next-philosopher-btn');
 const form = document.getElementById('add-quote');
-const quotesStack=[];
+let quotesStack=[];
 
 window.onload=randQuote;
 nextBtn.addEventListener('click',randQuote);
