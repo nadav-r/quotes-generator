@@ -1,15 +1,3 @@
-const quotesSocrates =[
-    'I only wish that wisdom were the kind of thing that flowed … from the vessel that was full to the one that was empty.',
-    'It would be better for me... that multitudes of men should disagree with me rather than that I, being one, should be out of harmony with myself.',
-    'Wonder is the feeling of a philosopher, and philosophy begins in wonder.',
-    'Anyone who holds a true opinion without understanding is like a blind man on the right road.',
-    'The unexamined life is not worth living for a human being.'
-]
-const quotesAristotle=[
-    'In all things of nature there is something of the marvelous.',
-    'The best friend is he that, when he wishes a person\'s good, wishes it for that person\'s own sake.',
-    'Happiness is thought to depend on leisure; for we are busy that we may have leisure, and make war that we may live in peace.',
-]
 
 class Philosopher{
     constructor(name='John Doe',quotes=null){
@@ -98,6 +86,23 @@ function addQuote(){
 
 }
 
+
+
+/*default...*/
+const quotesSocrates =[
+    'I only wish that wisdom were the kind of thing that flowed … from the vessel that was full to the one that was empty.',
+    'It would be better for me... that multitudes of men should disagree with me rather than that I, being one, should be out of harmony with myself.',
+    'Wonder is the feeling of a philosopher, and philosophy begins in wonder.',
+    'Anyone who holds a true opinion without understanding is like a blind man on the right road.',
+    'The unexamined life is not worth living for a human being.'
+]
+const quotesAristotle=[
+    'In all things of nature there is something of the marvelous.',
+    'The best friend is he that, when he wishes a person\'s good, wishes it for that person\'s own sake.',
+    'Happiness is thought to depend on leisure; for we are busy that we may have leisure, and make war that we may live in peace.',
+]
+
+
 let philosophers=[
     new Philosopher('Socrates',quotesSocrates),
     new Philosopher('Aristotle',quotesAristotle),
@@ -107,12 +112,20 @@ philosophers.forEach(philosopher=>PhilosophersStore.addPhilosopher(philosopher))
 philosophers =PhilosophersStore.getPhilosophers();
 let curPhilosopher = philosophers[0];
 
+
+
+
+
 const quotesTitle = document.getElementById('quotes-title');
 const showingQuote = document.getElementById('quote');
 const nextBtn = document.getElementById('next-quote-btn');
 const prevBtn = document.getElementById('prev-quote-btn');
 const changePhilosopherBtn = document.getElementById('next-philosopher-btn');
 const form = document.getElementById('add-quote');
+
+const dropDownBtn = document.querySelector('.dropdown-menu');
+
+
 let quotesStack=[];
 
 window.onload=randQuote;
@@ -125,3 +138,18 @@ form.addEventListener('submit',(e)=>{
 
 changePhilosopherBtn.addEventListener('click',randPhilosopher);
 
+
+philosophers.forEach((philosopher)=>{
+    const a = document.createElement('a');
+    a.classList.add('dropdown-item');
+    a.href='#';
+    a.innerHTML=philosopher.name;
+    a.addEventListener('click',function(){
+        quotesTitle.innerHTML=philosopher.name;
+        curPhilosopher=philosopher;
+        quotesStack=[];
+        quotesStack.push(philosopher.quotes[0]);
+        showingQuote.innerHTML=philosopher.quotes[0];
+    });
+    dropDownBtn.appendChild(a);
+});
