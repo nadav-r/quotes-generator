@@ -10,3 +10,21 @@
     display: flex;
     justify-content: space-around;
 }
+ .view-modes{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 50%;
+} 
+li{
+    list-style-type: none;
+    border : 1px solid black;
+
+}
+li:hover{
+    background: rgb(85, 130, 148);
+}
+
+.showing{
+    display: block;
+}
